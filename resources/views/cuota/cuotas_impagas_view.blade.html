@@ -1,0 +1,46 @@
+@if(empty($cuotas_pagas))
+                
+                <div class="alert alert-success">No hay  cuotas  pagadas</div>
+          @else  
+             
+          
+            <TABLE class="table table-striped" summary="Tabla listado de cuotas pagadas" >
+                <thead>
+                  <tr>            
+
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>N&uacute;mero</th>                    
+                    <th>Tipo</th>
+                    <th>Fecha pago</th>
+                    <th>Becado</th>
+                    <th>Opcion</th>
+
+
+                  </tr>
+                </thead>
+               <tbody>
+                  
+                  @foreach( $cuotas_pagas as $cuota  )
+                     <tr>
+                        <td class="td"> {{ $cuota->anio}} </td>
+                        <td class="td"> {{ $cuota->mes}}</td>
+                        <td class="td"> {{ $cuota->numero}} </td>
+                        <td class="td"> {{ $cuota->tipo}} </td>
+                        <td class="td"> {{ $cuota->created_at}} </td> 
+                        <td class="td"> {{ $cuota->beca}} </td> 
+                        <td class=" td opciones"> 
+                            
+                           
+                            <a href="" ><img src="/PROYECTO2015/img/borrar.png" alt="borrar pago"> </a>
+                             
+                        </td>                                      
+                    </tr>
+                   @endforeach
+                  
+                   
+                     
+              </tbody>
+          </TABLE>
+          {{$cuotas_pagas->links()}}
+          @endif
